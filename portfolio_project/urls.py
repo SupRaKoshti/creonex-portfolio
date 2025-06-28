@@ -24,6 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index, name='index'),
     path('contact/', contact, name='contact'),  # Assuming contact view is also handled by index for simplicity
-]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+       urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
