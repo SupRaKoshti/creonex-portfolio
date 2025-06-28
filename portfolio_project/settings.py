@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kcem6#88e6mac4l=nvt7g!4u-(b@x4v(^30#1&tufkwfni-!1e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://creonextech.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = ['creonextech.onrender.com']
 
 
 # Application definition
@@ -119,6 +119,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Media files (User-uploaded content)
 MEDIA_URL = '/media/'
