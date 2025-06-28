@@ -1,0 +1,447 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevCraft Agency - Expert UI/UX Design & Web Development</title>
+    <meta name="description" content="DevCraft Agency - A team of skilled designers and developers creating exceptional digital experiences with UI/UX design and full-stack web development." />
+    <meta name="author" content="DevCraft Agency" />
+
+    <meta property="og:title" content="DevCraft Agency - Expert UI/UX Design & Web Development" />
+    <meta property="og:description" content="DevCraft Agency - A team of skilled designers and developers creating exceptional digital experiences with UI/UX design and full-stack web development." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header" class="header">
+      <div class="container">
+        <nav class="nav">
+          <div class="logo">
+            <div class="logo-icon">
+              <span>C</span>
+            </div>
+            <span class="logo-text">CreoNexTech</span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+          <div class="nav-cta">
+            <button class="btn btn-primary">Start Project</button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="mobile-menu-btn">
+            <button id="menuToggle" class="menu-toggle">
+              <i data-lucide="menu"></i>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu">
+          <div class="mobile-nav-links">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#projects" class="mobile-nav-link">Projects</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <button class="btn btn-primary">Start Project</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="fade-in">
+            <h1 class="hero-title">
+              We Craft Digital <span class="gradient-text">Experiences</span>
+            </h1>
+            <p class="hero-description">
+              A boutique agency of 4 skilled professionals specializing in UI/UX design 
+              and full-stack web development. We transform ideas into exceptional digital products.
+            </p>
+          </div>
+
+          <div class="hero-buttons slide-up">
+            <button class="btn btn-primary btn-lg">
+              View Our Work
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <button class="btn btn-outline btn-lg">
+              Let's Talk
+            </button>
+          </div>
+
+          <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-number" data-target="7">0</div>
+                <div class="stat-label">UI/UX Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label">Full-Stack Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number" data-target="2">0</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Meet Our Team</h2>
+          <p class="section-description">
+            We're a small but mighty team of passionate designers and developers. 
+            Each bringing unique expertise to create exceptional digital experiences.
+          </p>
+        </div>
+
+    <div class="team-grid">
+    {% for team_member in team_members %}
+          <div class="team-card hover-lift">
+            <div class="team-avatar">
+              <img src="{{team_member.image.url }}" alt="{{team_members.name}}">
+            </div>
+            <h3 class="team-name">{{team_member.name}}</h3>
+            <p class="team-role">{{team_member.role}}</p>
+            <p class="team-description">
+              {{team_member.description}}            
+            </p>
+            <div class="team-skills">
+               {% for skill in team_member.skills.all %} 
+              <span class="skill-tag">{{skill.name}}</span>
+               {% endfor %}
+            </div> 
+          </div>
+    {% endfor %}
+    </div>
+
+        <div class="process-section">
+          <h3 class="process-title">Our Process</h3>
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="process-number">1</div>
+              <h4 class="process-step-title">Design</h4>
+              <p class="process-step-description">Research, wireframe, and prototype with user-centered approach</p>
+            </div>
+            <div class="process-step">
+              <div class="process-number">2</div>
+              <h4 class="process-step-title">Develop</h4>
+              <p class="process-step-description">Build robust, scalable applications with modern technologies</p>
+            </div>
+            <div class="process-step">
+              <div class="process-number">3</div>
+              <h4 class="process-step-title">Deploy</h4>
+              <p class="process-step-description">Launch and maintain your product with ongoing support</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-description">
+            Discover some of our recent work that showcases our expertise in design and development.
+          </p>
+        </div>
+        
+        <div class="projects-grid">
+          {% for project in projects %}
+          <div class="project-card hover-lift">
+            <div class="project-image">
+              <img src="{{project.project_image.url}}" alt="{{project.project_title}}">
+            </div>
+            <div class="project-content">
+              <div class="project-category">{{project.project_category}}</div>
+              <h3 class="project-title">{{project.project_title }}</h3>
+              <p class="project-description">
+                    {{project.project_description}}              
+              </p>
+              <div class="project-tags">
+                {%for project_tag in project.project_tags.all %}
+                <span class="project-tag">{{project_tag.name}}</span>
+                {% endfor %}
+              </div>
+              <button class="project-link">
+                View Case Study
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          {% endfor %}
+        
+        </div>
+
+        <div class="projects-cta">
+          <button class="btn btn-outline btn-lg">View All Projects</button>
+        </div>
+      </div>
+    </section>
+
+<!-- Services Section -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-description">
+        We offer comprehensive digital solutions that cover every aspect of your project,
+        from initial concept to final deployment.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card hover-lift">
+        <div class="service-icon">🎨</div>
+        <h3 class="service-title">UI/UX Design</h3>
+        <p class="service-description">
+          Complete design solutions from research to high-fidelity prototypes. We create intuitive user experiences that drive engagement and conversion.
+        </p>
+        <div class="service-highlight">7+ projects delivered</div>
+        <ul class="service-features">
+          <li>User Research & Analysis</li>
+          <li>Wireframing & Prototyping</li>
+          <li>Design Systems</li>
+          <li>Figma Handoff</li>
+          <li>Usability Testing</li>
+        </ul>
+      </div>
+
+      <div class="service-card hover-lift">
+        <div class="service-icon">💻</div>
+        <h3 class="service-title">Web Development</h3>
+        <p class="service-description">
+          Full-stack web applications built with Python and Django. Scalable, secure, and performant solutions tailored to your business needs.
+        </p>
+        <div class="service-highlight">4+ full-stack projects</div>
+        <ul class="service-features">
+          <li>Django Applications</li>
+          <li>REST API Development</li>
+          <li>Database Design</li>
+          <li>Third-party Integrations</li>
+          <li>Performance Optimization</li>
+        </ul>
+      </div>
+
+      <div class="service-card hover-lift">
+        <div class="service-icon">🤖</div>
+        <h3 class="service-title">AI Agents</h3>
+        <p class="service-description">
+          Custom AI agents built to automate workflows, handle customer support, and optimize decision-making through machine learning.
+        </p>
+        <div class="service-highlight">Cutting-edge AI solutions</div>
+        <ul class="service-features">
+          <li>Natural Language Processing</li>
+          <li>Chatbot Development</li>
+          <li>Task Automation</li>
+          <li>OpenAI Integration</li>
+          <li>Custom AI Workflows</li>
+        </ul>
+      </div>
+
+      <div class="service-card hover-lift">
+        <div class="service-icon">🧩</div>
+        <h3 class="service-title">Software Development</h3>
+        <p class="service-description">
+          Reliable and scalable software solutions for desktop, mobile, and cloud. Tailored to meet your specific business requirements.
+        </p>
+        <div class="service-highlight">10+ systems delivered</div>
+        <ul class="service-features">
+          <li>Custom App Development</li>
+          <li>Cross-platform Solutions</li>
+          <li>API Integrations</li>
+          <li>Agile Development</li>
+          <li>Security & Compliance</li>
+        </ul>
+      </div>
+
+      <div class="service-card hover-lift">
+        <div class="service-icon">🚀</div>
+        <h3 class="service-title">End-to-End Delivery</h3>
+        <p class="service-description">
+          Complete product development from concept to deployment. We handle the entire process ensuring seamless collaboration and delivery.
+        </p>
+        <div class="service-highlight">2+ years experience</div>
+        <ul class="service-features">
+          <li>Project Planning</li>
+          <li>Design & Development</li>
+          <li>Quality Assurance</li>
+          <li>Deployment & Hosting</li>
+          <li>Ongoing Maintenance</li>
+        </ul>
+      </div>
+      </div>
+    <div class="services-cta">
+      <div class="cta-card">
+        <h3 class="cta-title">Ready to Start Your Project?</h3>
+        <p class="cta-description">
+          Let's discuss your ideas and turn them into exceptional digital experiences.
+          We're here to help you every step of the way.
+        </p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary">Schedule a Call</button>
+          <button class="btn btn-outline">Get a Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-description">
+              Have a project in mind? We'd love to hear about it. 
+              Let's discuss how we can bring your ideas to life.
+            </p>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-info">
+              <h3 class="contact-info-title">Get in Touch</h3>
+              <p class="contact-info-description">
+                Ready to start your next project? Send us a message and we'll respond within 24 hours. 
+                We're excited to learn about your vision and discuss how we can help make it a reality.
+              </p>
+
+              <div class="contact-methods">
+                <div class="contact-method">
+                  <div class="contact-method-icon">
+                    <i data-lucide="mail"></i>
+                  </div>
+                  <div class="contact-method-content">
+                    <div class="contact-method-label">Email</div>
+                    <div class="contact-method-value">
+                      <a href="mailto:creonextech@gmail.com">creonextech@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+
+  
+
+                <div class="contact-method">
+                  <div class="contact-method-icon">
+                    <i data-lucide="github"></i>
+                  </div>
+                  <div class="contact-method-content">
+                    <div class="contact-method-label">GitHub</div>
+                    <div class="contact-method-value"><a href="https://github.com/Creonextech">@Creonextech</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-container">
+              <form id="contactForm" class="contact-form" method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your project..." rows="5" required></textarea>
+                </div>
+
+                <button type="submit" value="submit" class="btn btn-primary btn-full">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-logo">
+              <div class="logo-icon">
+                <span>D</span>
+              </div>
+              <span class="logo-text">DevCraft Agency</span>
+            </div>
+            <p class="footer-description">
+              A boutique agency specializing in UI/UX design and full-stack web development. 
+              We transform ideas into exceptional digital experiences.
+            </p>
+            <div class="footer-social">
+              <a href="https://github.com/Creonextech" class="social-link">GitHub</a>
+              <a href="mailto:creonextech@gmail.com" class="social-link">Email</a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-links-title">Services</h4>
+            <ul class="footer-links-list">
+              <li><a href="#" class="footer-link">UI/UX Design</a></li>
+              <li><a href="#" class="footer-link">Web Development</a></li>
+              <li><a href="#" class="footer-link">Full-Stack Solutions</a></li>
+              <li><a href="#" class="footer-link">Software Development</a></li>
+              <li><a href="#" class="footer-link">AI Agents</a></li>
+              <li><a href="#" class="footer-link">Consultation</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-links-title">Company</h4>
+            <ul class="footer-links-list">
+              <li><a href="#about" class="footer-link">About</a></li>
+              <li><a href="#projects" class="footer-link">Projects</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+              <li><a href="#" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 DevCraft Agency. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static 'js/script.js'%}"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  </body>
+</html>
+
