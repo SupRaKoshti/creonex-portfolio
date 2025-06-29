@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kcem6#88e6mac4l=nvt7g!4u-(b@x4v(^30#1&tufkwfni-!1e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['creonextech.onrender.com']
+ALLOWED_HOSTS = ['creonextech.onrender.com','127.0.0.1',]
 
 
 # Application definition
